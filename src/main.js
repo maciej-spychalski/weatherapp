@@ -1,3 +1,7 @@
+import {
+  getWeatherByCity, 
+} from './apiService.js';
+
 const viewElems = {};
 
 const getDOMELem = id => {
@@ -11,7 +15,7 @@ const connectHTMLElems = () => {
 
   viewElems.searchInput = getDOMELem('searchInput');
   viewElems.searchButton = getDOMELem('searchButton');
-  viewElems.weatherCityContainer = getDOMELem('weatherCityContainer');
+  viewElems.weatherCityContainer = getDOMELem('weatherCityContainergit ');
 
   viewElems.weatherCity = getDOMELem('weatherCity');
   viewElems.weatherIcon = getDOMELem('weatherIcon');
@@ -33,8 +37,21 @@ const initializeApp = () => {
   setupLIsteneres();
 }
 
-const onEnterSubmit = () => {}
-const onClickSubmit = () => {}
+const onEnterSubmit = event => {
+  if (event.key === 'Enter') {
+    let query = viewElems.searchInput.value;
+    getWeatherByCity(query).then(data => {
+      console.log(data)
+    });
+  }
+}
+
+const onClickSubmit = event => {
+  if (event.onClickSubmit) {
+    let query = viewElems.searchInput.value;
+    getWeatherByCity(query);
+  }
+}
 
 
 document.addEventListener('DOMContentLoaded', initializeApp);
