@@ -4,27 +4,27 @@ import {
 
 const viewElems = {};
 
-const getDOMELem = id => {
+const getDOMElem = id => {
   return document.getElementById(id);
 }
 
 const connectHTMLElems = () => {
-  viewElems.mainContainer = getDOMELem('mainContainer');
-  viewElems.weatherSearchView = getDOMELem('weatherSearchView');
-  viewElems.weatherForecastView = getDOMELem('weatherForecastView');
+  viewElems.mainContainer = getDOMElem('mainContainer');
+  viewElems.weatherSearchView = getDOMElem('weatherSearchView');
+  viewElems.weatherForecastView = getDOMElem('weatherForecastView');
 
-  viewElems.searchInput = getDOMELem('searchInput');
-  viewElems.searchButton = getDOMELem('searchButton');
-  viewElems.weatherCityContainer = getDOMELem('weatherCityContainergit ');
+  viewElems.searchInput = getDOMElem('searchInput');
+  viewElems.searchButton = getDOMElem('searchButton');
+  viewElems.weatherCityContainer = getDOMElem('weatherCityContainergit');
 
-  viewElems.weatherCity = getDOMELem('weatherCity');
-  viewElems.weatherIcon = getDOMELem('weatherIcon');
+  viewElems.weatherCity = getDOMElem('weatherCity');
+  viewElems.weatherIcon = getDOMElem('weatherIcon');
 
-  viewElems.weatherCurrentTemp = getDOMELem('weatherCurrentTemp');
-  viewElems.weatherMaxTemp = getDOMELem('weatherMaxTemp');
-  viewElems.weatherMinTemp = getDOMELem('weatherMinTemp');
+  viewElems.weatherCurrentTemp = getDOMElem('weatherCurrentTemp');
+  viewElems.weatherMaxTemp = getDOMElem('weatherMaxTemp');
+  viewElems.weatherMinTemp = getDOMElem('weatherMinTemp');
 
-  viewElems.returnToSearchBtn = getDOMELem('returnToSearchBtn');
+  viewElems.returnToSearchBtn = getDOMElem('returnToSearchBtn');
 }
 
 const setupLIsteneres = () => {
@@ -41,7 +41,8 @@ const onEnterSubmit = event => {
   if (event.key === 'Enter') {
     let query = viewElems.searchInput.value;
     getWeatherByCity(query).then(data => {
-      console.log(data)
+      console.log(data);
+      switchView();
     });
   }
 }
@@ -49,8 +50,19 @@ const onEnterSubmit = event => {
 const onClickSubmit = event => {
   let query = viewElems.searchInput.value;
   getWeatherByCity(query).then(data => {
-    console.log(data)
+    console.log(data);
+    switchView();
   });
+}
+
+const switchView = () => {
+  if (viewElems.weatherSearchView.style.display !== 'none') {
+    viewElems.weatherSearchView.style.display = 'none';
+    viewElems.weatherForecastView.style.display = 'block';
+  } else {
+    viewElems.weatherSearchView.style.display = 'block';
+    viewElems.weatherForecastView.style.display = 'none';
+  }
 }
 
 
