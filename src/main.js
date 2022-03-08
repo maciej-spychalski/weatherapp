@@ -1,5 +1,5 @@
 import {
-  getWeatherByCity, 
+  getWeatherByCity,
 } from './apiService.js';
 
 const viewElems = {};
@@ -47,10 +47,10 @@ const onEnterSubmit = event => {
 }
 
 const onClickSubmit = event => {
-  if (event.onClickSubmit) {
-    let query = viewElems.searchInput.value;
-    getWeatherByCity(query);
-  }
+  let query = viewElems.searchInput.value;
+  getWeatherByCity(query).then(data => {
+    console.log(data)
+  });
 }
 
 
