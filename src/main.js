@@ -97,7 +97,7 @@ const returnToSearch = () => {
   fadeInOut();
   setTimeout(() => {
     switchView();
-    fadeInOut()
+    fadeInOut();
   }, 500);
 }
 
