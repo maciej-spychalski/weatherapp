@@ -73,7 +73,6 @@ const displayWeatherData = data => {
   viewElems.weatherCurrentTemp.innerText = `Current temperature: ${currTemp}°C`;
   viewElems.weatherMaxTemp.innerText = `Max temperature: ${maxTemp}°C`;
   viewElems.weatherMinTemp.innerText = `Min temperature: ${minTemp}°C`;
-
 }
 
 const fadeInOut = () => {
