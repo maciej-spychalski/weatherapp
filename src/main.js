@@ -29,6 +29,13 @@ class WeatherApp {
       let query = this.viewElems.searchInput.value;
       getWeatherByCity(query).then(data => {
         this.displayWeatherData(data);
+        this.viewElems.searchInput.style.borderColor = 'black';
+        this.viewElems.searchInput.value = '';
+        this.viewElems.inputError.innerText = '';
+      }).catch(() => {
+        this.fadeInOut();
+        this.viewElems.searchInput.style.borderColor = 'red';
+        this.viewElems.inputError.innerText = 'Invalid city name';
       });
     }
   }
