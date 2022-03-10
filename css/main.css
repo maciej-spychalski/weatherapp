@@ -50,6 +50,11 @@ main {
   text-align: center;
 }
 
+.input-info-danger {
+  color: red;
+  font-size: 12px;
+}
+
 .weather-info__search-view button {
   padding: 10px 50px;
   border: 2px solid black;
